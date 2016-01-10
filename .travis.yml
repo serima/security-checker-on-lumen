@@ -8,5 +8,5 @@ before_script:
   - chmod -R 777 storage
 
 script:
-  - security-checker
+  - vendor/bin/security-checker security:check
   - phpunit
