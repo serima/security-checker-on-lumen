@@ -9,7 +9,7 @@
         "laravel/lumen-framework": "5.2.*",
         "vlucas/phpdotenv": "~2.2",
         "sensiolabs/security-checker": "^3.0",
-        "swiftmailer/swiftmailer": "5.0.0"
+        "swiftmailer/swiftmailer": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
