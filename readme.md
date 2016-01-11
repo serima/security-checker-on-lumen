@@ -6,9 +6,13 @@
 
 https://travis-ci.org/serima/security-checker-on-lumen/builds/101483861
 
+![travis-fail](http://snag.gy/lYmxc.jpg)
+
 ### Fixed known vulnerabilities
 
 https://travis-ci.org/serima/security-checker-on-lumen/builds/101484312
+
+![travis-fixed](http://snag.gy/x0ero.jpg)
 
 ```yaml
 language: php
@@ -31,9 +35,13 @@ script:
 
 https://circleci.com/gh/serima/security-checker-on-lumen/7
 
+![circle-fail](http://snag.gy/nC4cw.jpg)
+
 ### Fixed known vulnerabilities
 
 https://circleci.com/gh/serima/security-checker-on-lumen/8
+
+![circle-fixed](http://snag.gy/RZuFf.jpg)
 
 ```yaml
 machine:
