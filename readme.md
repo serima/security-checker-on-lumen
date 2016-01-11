@@ -1,21 +1,49 @@
-## Lumen PHP Framework
+# Example of using SensioLabs Security Advisories Checker
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+## TravisCI
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+### Found known vulnerabilities
 
-## Official Documentation
+https://travis-ci.org/serima/security-checker-on-lumen/builds/101483861
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+### Fixed known vulnerabilities
 
-## Security Vulnerabilities
+https://travis-ci.org/serima/security-checker-on-lumen/builds/101484312
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+```yaml
+language: php
+php:
+  - 5.6
 
-### License
+before_script:
+  - composer self-update
+  - composer install
+  - chmod -R 777 storage
 
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+script:
+  - vendor/bin/security-checker security:check
+  - phpunit
+```
+
+## CircleCI
+
+### Found known vulnerabilities
+
+https://circleci.com/gh/serima/security-checker-on-lumen/7
+
+### Fixed known vulnerabilities
+
+https://circleci.com/gh/serima/security-checker-on-lumen/8
+
+```yaml
+machine:
+  timezone:
+    Asia/Tokyo
+  php:
+    version: 5.6.14
+
+test:
+  override:
+    - vendor/bin/security-checker security:check
+    - vendor/bin/phpunit
+```
