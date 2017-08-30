@@ -43,6 +43,8 @@ https://circleci.com/gh/serima/security-checker-on-lumen/8
 
 ![circle-fixed](http://snag.gy/RZuFf.jpg)
 
+#### CircleCI 1.0
+
 ```yaml
 machine:
   timezone:
@@ -54,4 +56,34 @@ test:
   override:
     - vendor/bin/security-checker security:check
     - vendor/bin/phpunit
+```
+
+#### CircleCI 2.0
+
+```yaml
+defaults: &defaults
+  working_directory: ~/working_directory
+  steps:
+    - checkout
+    - run: composer install -n --prefer-dist
+    - run: vendor/bin/security-checker security:check
+    - run: vendor/bin/phpunit
+
+version: 2
+jobs:
+  build-php56:
+    <<: *defaults
+    docker:
+      - image: circleci/php:5.6
+  build-php70:
+    <<: *defaults
+    docker:
+      - image: circleci/php:7.0
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build-php56
+      - build-php70
 ```
